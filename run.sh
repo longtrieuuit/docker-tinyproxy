@@ -104,7 +104,7 @@ setAccess() {
         checkStatus $? "Allowing ANY - Could not edit $PROXY_CONF" \
                        "Allowed ANY - Edited $PROXY_CONF successfully."
     else
-        sed -i "s,^Allow 127.0.0.1,$1," $PROXY_CONF
+        sed -i -e"s/^Allow /#Allow /" $PROXY_CONF
         checkStatus $? "Allowing IPs - Could not edit $PROXY_CONF" \
                        "Allowed IPs - Edited $PROXY_CONF successfully."
     fi
